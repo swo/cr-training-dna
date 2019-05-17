@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Scott Olesen">
+  <meta name="dcterms.date" content="2019-05-28">
+  <title>Introduction to microbial DNA sequencing</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="https://revealjs.com/css/reveal.css">
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <link rel="stylesheet" href="https://revealjs.com/css/theme/simple.css" id="theme">
+  <link rel="stylesheet" href="my.css"/>
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'https://revealjs.com/css/print/pdf.css' : 'https://revealjs.com/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="https://revealjs.com/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">Introduction to microbial DNA sequencing</h1>
+  <p class="author">Scott Olesen</p>
+  <p class="date">28 May 2019</p>
+</section>
+
+<section id="overview" class="slide level1" data-background-image="img/openbiome-logo.png" data-background-position="5% 95%" data-background-size="15%">
+<h1>Overview</h1>
+<ol type="1">
+<li>The biology of microbial DNA</li>
+<li>Storage of samples intended for DNA extraction</li>
+<li>DNA extraction</li>
+<li>Library prep</li>
+<li>Sequencing</li>
+<li>Post-sequencing, pre-analysis data processing</li>
+</ol>
+</section>
+<section class="slide level1">
+
+<h2 id="the-biology-of-microbial-dna">The biology of microbial DNA</h2>
+</section>
+<section id="pcr-is-a-key-tool-for-manipulating-dna" class="slide level1" data-background-image="img/openbiome-logo.png" data-background-position="5% 95%" data-background-size="15%">
+<h1>PCR is a key tool for manipulating DNA</h1>
+<p>Polymerase chain reaction (PCR) allows you to:</p>
+<ul>
+<li><em>amplify</em> DNA in an exponential chain reaction</li>
+<li>amplify select DNA sequence regions using <em>primers</em></li>
+</ul>
+</section>
+<section id="pcr-works-by-repeatedly-splitting-and-extending-dna" class="slide level1" data-background-image="img/openbiome-logo.png" data-background-position="5% 95%" data-background-size="15%">
+<h1>PCR works by repeatedly splitting and extending DNA</h1>
+<p><img data-src="img/pcr.jpg" style="width:60.0%" /></p>
+<div class="footer">
+Thermo Fisher
+</div>
+</section>
+<section id="the-16s-rrna-gene-encodes-part-of-the-bacterial-ribosome" class="slide level1" data-background-image="img/openbiome-logo.png" data-background-position="5% 95%" data-background-size="15%">
+<h1>The 16S rRNA gene encodes part of the bacterial ribosome</h1>
+<p><img data-src="img/16s-structure.gif" /></p>
+<div class="footer">
+PDB. Orange = RNA. Blue = protein.
+</div>
+</section>
+<section id="the-16s-gene-has-variable-regions-that-can-be-pcr-amplified" class="slide level1" data-background-image="img/openbiome-logo.png" data-background-position="5% 95%" data-background-size="15%">
+<h1>The 16S gene has variable regions that can be PCR-amplified</h1>
+<p><img data-src="img/16s-regions.png" style="width:80.0%" /></p>
+</section>
+<section id="the-variable-regions-in-16s-have-taxonomic-information" class="slide level1" data-background-image="img/openbiome-logo.png" data-background-position="5% 95%" data-background-size="15%">
+<h1>The variable regions in 16S have taxonomic information</h1>
+<p>DNA sequences with no clear biological function are preferred for determining taxonomy:</p>
+<ul>
+<li>Mutations occur at a regular rate, producing a “molecular clock”.</li>
+<li>Convergent evolution won’t lead to convergent taxonomies.</li>
+</ul>
+<p>Human DNA fingerprinting uses highly variable, biologically irrelevant DNA sequences.</p>
+</section>
+<section id="all-dna-sequences-are-mapped-onto-references-for-analysis" class="slide level1" data-background-image="img/openbiome-logo.png" data-background-position="5% 95%" data-background-size="15%">
+<h1>All DNA sequences are mapped onto references for analysis</h1>
+<ul>
+<li>16S sequences are mapped to known sequence-species maps to determine community taxonomic composition</li>
+<li>Other sequences are mapped to known sequence-gene maps to determine community <em>functions</em></li>
+</ul>
+</section>
+<section class="slide level1">
+
+<h2 id="sample-collection-storage">Sample collection &amp; storage</h2>
+</section>
+<section id="there-are-multiple-methods" class="slide level1" data-background-image="img/openbiome-logo.png" data-background-position="5% 95%" data-background-size="15%">
+<h1>There are multiple methods</h1>
+<ul>
+<li>RNAlater (HCHS/SOL study)</li>
+<li>95% ethanol kit (HMP2)</li>
+<li>OMNIgene Gut Kit (Personalized Nutrition Study)</li>
+<li>Anaerobic Stool Collection Kit</li>
+<li>Whatman FTA card (American Gut)</li>
+</ul>
+</section>
+<section id="there-have-advantages-and-disadvantages" class="slide level1" data-background-image="img/openbiome-logo.png" data-background-position="5% 95%" data-background-size="15%">
+<h1>There have advantages and disadvantages</h1>
+<ul>
+<li>All of them preserve DNA.</li>
+<li>Most are thermostable (glycerol is <em>not</em>).</li>
+<li>Only some preserve RNA (e.g., RNAlater).</li>
+<li>Only some (e.g., ethanol) preserve metabolites.</li>
+<li>Only some (e.g., glycerol) allow culturing.</li>
+</ul>
+</section>
+<section class="slide level1">
+
+<h2 id="dna-extraction">DNA extraction</h2>
+</section>
+<section id="all-extraction-or-isolation-methods-follow-similar-steps" class="slide level1" data-background-image="img/openbiome-logo.png" data-background-position="5% 95%" data-background-size="15%">
+<h1>All extraction (or “isolation”) methods follow similar steps</h1>
+<ul>
+<li>Cell lysis: Mechanical (bead beading) or chemical (detergents)</li>
+<li>Break up lipids with detergents</li>
+<li>Break up proteins with protease</li>
+<li>Break up RNA with RNAse</li>
+<li>Use a concentrated salt to clump this debris</li>
+<li>Centrifugate to separate debris from supernatant with dissolved DNA</li>
+<li>Purify DNA in the supernatant</li>
+</ul>
+<p>Methods differ most in how they do the final purification step</p>
+</section>
+<section id="purification-method-1-of-3-ethanol-precipitation" class="slide level1" data-background-image="img/openbiome-logo.png" data-background-position="5% 95%" data-background-size="15%">
+<h1>Purification method 1 of 3: Ethanol precipitation</h1>
+<p>DNA is insoluble in alcohol, so it precipitates. Centrifugate and grab that pellet.</p>
+<p><img data-src="img/ethanol.png" /></p>
+<div class="footer">
+technologyinscience.blogspot.com
+</div>
+</section>
+<section id="purification-method-2-of-3-spin-column-purification" class="slide level1" data-background-image="img/openbiome-logo.png" data-background-position="5% 95%" data-background-size="15%">
+<h1>Purification method 2 of 3: Spin column purification</h1>
+<p>DNA is bound to silica beads, cleaned, and eluted.</p>
+<p><img data-src="img/spin-column.svg" /></p>
+<div class="footer">
+wikipedia
+</div>
+</section>
+<section id="purification-method-3-of-3-phenol-chloroform-extraction" class="slide level1" data-background-image="img/openbiome-logo.png" data-background-position="5% 95%" data-background-size="15%">
+<h1>Purification method 3 of 3: Phenol-chloroform extraction</h1>
+<p>Lipids dissolve in the denser phenol-chloroform mixture; DNA stays in upper aqueous phase; proteins remain at interface.</p>
+<p><img data-src="img/phenol-chloroform.svg" /></p>
+<div class="footer">
+wikipedia (AGPC extraction)
+</div>
+</section>
+<section id="extraction-methodology-affects-measured-bacterial-composition" class="slide level1" data-background-image="img/openbiome-logo.png" data-background-position="5% 95%" data-background-size="15%">
+<h1>Extraction methodology affects measured bacterial composition</h1>
+<p><img data-src="img/extraction-heatmap.jpg" style="width:75.0%" /></p>
+</section>
+<section class="slide level1">
+
+<h2 id="library-prep">Library prep</h2>
+</section>
+<section id="library-prep-from-dna-to-something-ready-to-sequence" class="slide level1" data-background-image="img/openbiome-logo.png" data-background-position="5% 95%" data-background-size="15%">
+<h1>“Library prep”: from DNA to something ready to sequence</h1>
+<p>This can include a few steps:</p>
+<ul>
+<li><em>Fragmenting</em> the DNA, or amplifying <em>amplicons</em></li>
+<li>Using PCR to add <em>adapters</em> that allow the sequencer to “grab” the DNA</li>
+<li>Using PCR to add <em>barcodes</em> that allow for multiplexing</li>
+<li>Pooling and normalizing multiple samples</li>
+</ul>
+<p>“Tagmentation” means fragmentation and adding adapters.</p>
+</section>
+<section id="pooling-is-one-reason-that-sequencing-data-is-compositional" class="slide level1" data-background-image="img/openbiome-logo.png" data-background-position="5% 95%" data-background-size="15%">
+<h1>Pooling is one reason that sequencing data is compositional</h1>
+<p>The sequencer performs better, and data quality is better, when all samples have the same library size.</p>
+<p>This, and all the caveats about extraction, mean you get the <em>composition</em> of sequences, not the <em>number</em>.</p>
+</section>
+<section id="nomenclature-about-sequencing-types-mix-up-targets-and-technology" class="slide level1" data-background-image="img/openbiome-logo.png" data-background-position="5% 95%" data-background-size="15%">
+<h1>Nomenclature about sequencing types mix up targets and technology</h1>
+<p><small></p>
+<table>
+<tbody>
+<tr class="odd">
+<td></td>
+<td></td>
+<td><strong>Names</strong></td>
+<td><strong>Technology</strong></td>
+</tr>
+<tr class="even">
+<td>Whole genome</td>
+<td>one organism</td>
+<td>“whole genome sequencing”</td>
+<td>Illumina</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>multiple organisms</td>
+<td>“metagenomics”, “shotgun sequencing”</td>
+<td>Illumina</td>
+</tr>
+<tr class="even">
+<td>16S rRNA gene</td>
+<td>one organism</td>
+<td>“Sanger”</td>
+<td>Sanger sequencing</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>multiple organisms</td>
+<td>“16S”, “16S metagenomics”</td>
+<td>Illumina</td>
+</tr>
+</tbody>
+</table>
+<p></small></p>
+</section>
+<section class="slide level1">
+
+<h2 id="sequencing">Sequencing</h2>
+</section>
+<section id="illumina-is-the-dominant-sequencing-technology-today" class="slide level1" data-background-image="img/openbiome-logo.png" data-background-position="5% 95%" data-background-size="15%">
+<h1>Illumina is the dominant sequencing technology today</h1>
+<p><img data-src="img/miseq.png" style="width:50.0%" /></p>
+<div class="footer">
+Illumina MiSeq
+</div>
+</section>
+<section id="sequencing-adapters-allow-dna-to-attach-to-the-flow-cell" class="slide level1" data-background-image="img/openbiome-logo.png" data-background-position="5% 95%" data-background-size="15%">
+<h1>Sequencing adapters allow DNA to attach to the flow cell</h1>
+<p><img data-src="img/sequencing1.png" /></p>
+</section>
+<section id="bridge-amplification-forms-clusters-of-identical-dna-strands" class="slide level1" data-background-image="img/openbiome-logo.png" data-background-position="5% 95%" data-background-size="15%">
+<h1>Bridge amplification forms clusters of identical DNA strands</h1>
+<p><img data-src="img/sequencing2.png" /></p>
+</section>
+<section id="sequencing-by-synthesis-lights-up-one-color-per-cluster-per-base" class="slide level1" data-background-image="img/openbiome-logo.png" data-background-position="5% 95%" data-background-size="15%">
+<h1>“Sequencing by synthesis” lights up one color per cluster per base</h1>
+<p><img data-src="img/sequencing3.png" /></p>
+</section>
+<section class="slide level1">
+
+<h2 id="data-from-sequencer-to-analysis">Data: from sequencer to analysis</h2>
+</section>
+<section id="there-are-multiple-steps-from-the-sequencer-to-analysis-ready-data" class="slide level1" data-background-image="img/openbiome-logo.png" data-background-position="5% 95%" data-background-size="15%">
+<h1>There are multiple steps from the sequencer to analysis-ready data</h1>
+<ul>
+<li>The sequences outputs <em>BCL</em> (“base call”) files.</li>
+<li>It probably also processes them into <em>FASTQ</em> files (sequence reads with Quality).</li>
+<li>The user might <em>demultiplex</em> the reads.</li>
+<li>The user must process the FASTQs into a FASTA (just sequence reads).</li>
+</ul>
+</section>
+<section id="bcl-base-call-files" class="slide level1" data-background-image="img/openbiome-logo.png" data-background-position="5% 95%" data-background-size="15%">
+<h1>BCL (“base call”) files</h1>
+<p>A BCL file has one record for each cluster/color measurement:</p>
+<ul>
+<li>Cluster ID (cross-referenced with other files giving the cluster location)</li>
+<li>The base (<code>ACTG</code>) measured</li>
+<li>The quality of the measurement (i.e., the probability the base call is right)</li>
+</ul>
+<p>A “filter file” says if the whole cluster met some quality criteria.</p>
+</section>
+<section id="fastq-files-are-just-rearranged-bcls" class="slide level1" data-background-image="img/openbiome-logo.png" data-background-position="5% 95%" data-background-size="15%">
+<h1>FASTQ files are just rearranged BCLs</h1>
+<p>A FASTQ file has one record per read (i.e., cluster):</p>
+<ul>
+<li>Read ID (usually with some information about the cluster)</li>
+<li>The measured bases</li>
+<li>Quality scores by base</li>
+</ul>
+</section>
+<section id="the-fastq-format-is-information-dense" class="slide level1" data-background-image="img/openbiome-logo.png" data-background-position="5% 95%" data-background-size="15%">
+<h1>The FASTQ format is information dense</h1>
+<pre><code>@61JFDAAXX100430:7:100:10000:13168/1    &lt;- ID line
+CACCACCACGGCGTACCTCTATTCCACCTATGAACG... &lt;- base calls
++61JFDAAXX100430:7:100:10000:13168/1    &lt;- repeated ID line
+?CCC=A;AA-27=3=?C;CC?CAC-CCAC@C??B=B... &lt;- quality scores</code></pre>
+<div class="footer">
+HMP SRS013215
+</div>
+</section>
+<section id="demultiplexing-makes-multiple-genome-sequencing-affordable" class="slide level1" data-background-image="img/openbiome-logo.png" data-background-position="5% 95%" data-background-size="15%">
+<h1>Demultiplexing makes multiple-genome sequencing affordable</h1>
+<p>To avoid having one sample per sequencing lane, you add “a unique index adapter sequence”, or “badcode”, to each sample during library prep.</p>
+<p>Demultiplexing then assigns clusters to a sample based on the index adapter sequence of the cluster.</p>
+<div class="footer">
+bcl2fastq documentation
+</div>
+</section>
+<section id="quality-information-is-used-to-clean-the-data" class="slide level1" data-background-image="img/openbiome-logo.png" data-background-position="5% 95%" data-background-size="15%">
+<h1>Quality information is used to “clean” the data</h1>
+<p><img data-src="img/good_quality.png" style="width:55.0%" /></p>
+<p><em>A “good” quality sample</em></p>
+</section>
+<section id="quality-information-is-used-to-clean-the-data-1" class="slide level1" data-background-image="img/openbiome-logo.png" data-background-position="5% 95%" data-background-size="15%">
+<h1>Quality information is used to “clean” the data</h1>
+<p><img data-src="img/bad_quality.png" style="width:55.0%" /></p>
+<p><em>A “bad” quality sample</em></p>
+</section>
+<section id="quality-cleaning-has-many-adjustable-steps" class="slide level1" data-background-image="img/openbiome-logo.png" data-background-position="5% 95%" data-background-size="15%">
+<h1>Quality “cleaning” has many adjustable steps</h1>
+<ul>
+<li><em>Trimming</em>: cut off the unreliable base calls at the end of a read</li>
+<li><em>Filtering</em>: throw away overall unreliable reads</li>
+<li><em>Stitching/assembling/merging/joining</em>: Join forward and reverse reads</li>
+<li><em>Chimera slaying</em>: throw away “chimeric” sequences</li>
+</ul>
+</section>
+<section id="fasta-files-are-way-simpler" class="slide level1" data-background-image="img/openbiome-logo.png" data-background-position="5% 95%" data-background-size="15%">
+<h1>FASTA files are way simpler</h1>
+<p>It’s like FASTQ, but with different syntax and no quality information.</p>
+<pre><code>&gt;61JFDAAXX100430:7:100:10000:13168/1 &lt;- ID line
+CACCACCACGGCGTACCTCTATTCCACCTATGAACG &lt;- base calls
+AAGCCGCATCAGCGAAGCTGATCCTACCGACA</code></pre>
+<p>And <em>now</em> you can go onto doing microbiome analysis!</p>
+</section>
+    </div>
+  </div>
+
+  <script src="https://revealjs.com/lib/js/head.min.js"></script>
+  <script src="https://revealjs.com/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
+        // Transition style
+        transition: 'none', // none/fade/slide/convex/concave/zoom
+        // Transition style for full page slide backgrounds
+        backgroundTransition: 'none', // none/fade/slide/convex/concave/zoom
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'https://revealjs.com/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'https://revealjs.com/plugin/zoom-js/zoom.js', async: true },
+          { src: 'https://revealjs.com/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>

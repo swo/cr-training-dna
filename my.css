@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css?family=Didact+Gothic');
+
+.reveal .title {
+    font-size: 2em;
+}
+
+.reveal h1 {
+    font-size: 1.5em;
+    font-family: "Lato"
+}
+
+.reveal p, .reveal ul, .reveal ol {
+    font-family: "Didact Gothic", "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+
+.reveal p {
+    font-size: 0.8em;
+}
+
+.reveal blockquote {
+    font-size: 0.8em;
+}
+
+.reveal ul, .reveal ol {
+    font-size: 0.75em;
+}
+
+.footer {
+    bottom: 0;
+    text-align: right;
+    font-size: 0.5em;
+    font-style: italic;
+    font-family: "Lato";
+}
+
+.reveal section img {
+    border: none;
+    box-shadow: none;
+}
