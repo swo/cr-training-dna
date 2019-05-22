@@ -289,3 +289,11 @@ AAGCCGCATCAGCGAAGCTGATCCTACCGACA
 ```
 
 And *now* you can go onto doing microbiome analysis!
+
+# There are subtleties and nuts & bolts
+
+You can read my *Processing 16S data* booklet.
+
+<img src="img/book.png" width="30%" style="border:1px solid black;">
+
+footer: leanpub.com/primer16s
