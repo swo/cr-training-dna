@@ -53,16 +53,23 @@ DNA sequences with no clear biological function are preferred for determining ta
 
 Human DNA fingerprinting uses highly variable, biologically irrelevant DNA sequences.
 
+# The phylogeny of 16S led to a re-write of the tree of life
+
+- Aristotle proposed a "two-kingdom" system: plants vs. animals
+- The discovery of microbes led to a three-kingdom system: Plantae, Animalia, Protista
+- Understanding of the eukaryote/prokaryote division led to four, adding Monera (and later, Fungi)
+- The 16S phylogeny and later work led to a three-kingdom system: Archaea, Bacteria, and Eukaryota
+
 # All DNA sequences are mapped onto references for analysis
 
-- 16S sequences are mapped to known sequence-species maps to determine community taxonomic composition
-- Other sequences are mapped to known sequence-gene maps to determine community *functions*
+- 16S sequences are mapped to known sequence-species maps to determine community taxonomic composition (e.g., Greengenes)
+- Other sequences are mapped to known sequence-gene maps to determine community *functions* (e.g., UniParc)
 
 ---
 
 ## Sample collection & storage
 
-# There are multiple methods
+# There are multiple methods for storing samples
 
 - RNAlater (HCHS/SOL study)
 - 95% ethanol kit (HMP2)
@@ -72,8 +79,8 @@ Human DNA fingerprinting uses highly variable, biologically irrelevant DNA seque
 
 # There have advantages and disadvantages
 
-- All of them preserve DNA.
-- Most are thermostable (glycerol is *not*).
+- All of them (that I listed) preserve DNA.
+- Most are thermostable (but glycerol is *not*).
 - Only some preserve RNA (e.g., RNAlater).
 - Only some (e.g., ethanol) preserve metabolites.
 - Only some (e.g., glycerol) allow culturing.
@@ -165,11 +172,20 @@ Whole genome || one organism || "whole genome sequencing" || Illumina
 
 # Illumina is the dominant sequencing technology today
 
-![](img/miseq.png){ width=50% }
+![](img/miseq.png){ width=45% }
+
+<small>Also called "Solexa" because Illumina bought that company and its sequencing technology</small>
 
 footer: Illumina MiSeq
 
-# Sequencing adapters allow DNA to attach to the flow cell
+# Other "next-generation" sequencing methods are less-often used
+
+- Pacific Biosciences ("PacBio")
+- Roche 454 ("454" or "pyrosequencing")
+- Ion Torrent
+- Helicos
+
+# Illumina sequencing adapters allow DNA to attach to the flow cell
 
 ![](img/sequencing1.png)
 
@@ -180,6 +196,18 @@ footer: Illumina MiSeq
 # "Sequencing by synthesis" lights up one color per cluster per base
 
 ![](img/sequencing3.png)
+
+# "This" generation sequencing means Sanger sequencing
+
+![](img/sanger.jpg)
+
+footer: Gauthier, PhD thesis, U Ottawa (2017)
+
+# "Next-next" includes nanopore sequencing
+
+![](img/nanopore.jpg)
+
+footer: Gauthier, PhD thesis, U Ottawa (2017)
 
 ---
 
