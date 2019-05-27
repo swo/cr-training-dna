@@ -21,18 +21,17 @@ controlsTutorial: false
 
 ## The biology of microbial DNA
 
-# PCR is a key tool for manipulating DNA
+# DNA is a molecule with matching pairs of bases
 
-Polymerase chain reaction (PCR) allows you to:
+![](img/dna.png){ width=45% }
 
-- *amplify* DNA in an exponential chain reaction
-- amplify select DNA sequence regions using *primers*
+footer: Yikrazuul, wikipedia
 
-# PCR works by repeatedly splitting and extending DNA
+# Cellular machinery replicates DNA each generation
 
-![](img/pcr.jpg){ width=60% }
+![](img/dna-replication.svg)
 
-footer: Thermo Fisher
+footer: wikipedia ("DNA replication")
 
 # The 16S rRNA gene encodes part of the bacterial ribosome
 
@@ -144,6 +143,19 @@ This can include a few steps:
 - Pooling and normalizing multiple samples
 
 "Tagmentation" means fragmentation and adding adapters.
+
+# PCR is a key tool for manipulating DNA
+
+Polymerase chain reaction (PCR) allows you to:
+
+- *amplify* DNA in an exponential chain reaction
+- amplify select DNA sequence regions using *primers*
+
+# PCR works by repeatedly splitting and extending DNA
+
+![](img/pcr.jpg){ width=60% }
+
+footer: Thermo Fisher
 
 # Pooling is one reason that sequencing data is compositional
 
